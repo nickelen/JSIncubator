@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+  <title>Bind() example with jQuery</title>
+</head>
+
+<body>
+  <div>
+    <button class="testbind1">click me 1</button>
+    <br />
+    <button class="testbind2">click me 2</button>
+  </div>
+  <script type="text/javascript">
+    var buttonBind1 = {
+	    bar : 1,
+	    eventBind: function(){
+	        var _this = this;
+	        $('.testbind1').on('click',function(event) {
+	            /* Act on the event */
+	            console.log(_this.bar);     //1
+	        });
+	    }
+  	}
+
+  	buttonBind1.eventBind();
+  </script>
+  <script type="text/javascript">
+    var buttonBind2 = {
+	    bar : 2,
+	    eventBind: function(){
+	        $('.testbind2').on('click', function(event) {
+	            /* Act on the event */
+	            console.log(this.bar);     //1
+	        }.bind(this));
+	    }
+  	}
+
+  	buttonBind2.eventBind();
+  </script>
+</body>
+</html>
