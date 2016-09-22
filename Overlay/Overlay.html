@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Test overlay html</title>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+  <link rel="stylesheet" href="css/style.css"></link>
+</head>
+
+<body>
+  <div>
+    <button id="button1">Create overlay!</button>
+  </div>
+  <div class="overlay">
+  	<p class="article">This is test overlay !!This is test overlay !!This is test overlay !!This is test overlay !!This is test overlay !!This is test overlay !!This is test overlay !!This is test overlay !!This is test overlay !!This is test overlay !!This is test overlay !!This is test overlay !!This is test overlay !!This is test overlay !!This is test overlay !!This is test overlay !!</p>
+  </div>
+  <script type="text/javascript">
+  	function closeOverlay(){
+  		$('.overlay').css("display", "none");
+  	}
+
+  	$(document).ready(function() {
+  		// hide overlay first
+  		$('.overlay').css("display", "none");
+  		// add event on button1 click to display overlay
+  		$('#button1').on('click', function(event) {
+	        $('.overlay').css("display", "block");
+	    });
+
+  		$('.overlay').click(function(event) {
+  			if (event.target == event.currentTarget) {
+  				closeOverlay();
+  			}
+  		});
+  	});
+  </script>
+</body>
+</html>
